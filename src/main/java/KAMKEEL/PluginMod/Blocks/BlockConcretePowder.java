@@ -54,7 +54,7 @@ public class BlockConcretePowder extends BlockFalling {
         this.iicons = new IIcon[META_AMOUNT + 1];
     }
 
-    public void register() {
+    public void  register() {
         this.setBlockName(LocalizationHelper.MOD_PREFIX + blockName);
         GameRegistry.registerBlock(this, ItemBlockConcrete.class, blockName, this.META_SET);
     }

@@ -85,13 +85,20 @@ public class PluginMod {
     public static CreativeTabs cardsTab = new CreativeTabs(LocalizationHelper.MOD_PREFIX + "playingCardTab") {
         @Override
         public Item getTabIconItem() {
+            if (ModItems.CardIcon == null) {
+                return new ItemStack(Blocks.emerald_ore).getItem();
+            }
             return new ItemStack(ModItems.CardIcon).getItem();
+
         }
     };
 
     public static CreativeTabs miscTab = new CreativeTabs(LocalizationHelper.MOD_PREFIX + "misc") {
         @Override
         public Item getTabIconItem() {
+            if (ModItems.TreasureMap == null) {
+                return new ItemStack(Blocks.enchanting_table).getItem();
+            }
             return new ItemStack(ModItems.TreasureMap).getItem();
         }
     };
@@ -99,6 +106,9 @@ public class PluginMod {
     public static CreativeTabs weaponTab = new CreativeTabs(LocalizationHelper.MOD_PREFIX + "weapons") {
         @Override
         public Item getTabIconItem() {
+            if (ModItems.PaperBomb == null) {
+                return new ItemStack(Blocks.emerald_block).getItem();
+            }
             return new ItemStack(ModItems.PaperBomb).getItem();
         }
     };
