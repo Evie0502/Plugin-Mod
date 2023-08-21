@@ -1,5 +1,6 @@
 package KAMKEEL.PluginMod.Config;
 
+import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import cpw.mods.fml.common.FMLLog;
@@ -38,9 +39,17 @@ public class ConfigItem {
     public static Property ApplesProperty;
     public static boolean Apples = true;
     public static Property MISCPProperty;
-    public static boolean TreasureMap = true;
-    public static boolean PaperBomb = true;
     public static boolean MISC = true;
+    public static Property TreasureMapProperty;
+    public static boolean TreasureMap = true;
+    public static Property PaperBombProperty;
+    public static boolean PaperBomb = true;
+    public static Property VoidRasenshurikenProperty;
+    public static boolean VoidRasenshuriken = true;
+    public static Property MassiveRasenganProperty;
+    public static boolean MassiveRasengan = true;
+    public static Property MassiveRasenganSpinProperty;
+    public static boolean MassiveRasenganSpin = true;
 
 
     public static void init(File configFile) {
@@ -67,6 +76,21 @@ public class ConfigItem {
 
             EnergyAttacksProperty = config.get(GENERAL, "EnergyAttacks", true);
             EnergyAttacks = EnergyAttacksProperty.getBoolean(true);
+
+            PaperBombProperty = config.get(GENERAL, "PaperBomb", true);
+            PaperBomb = PaperBombProperty.getBoolean(true);
+
+            TreasureMapProperty = config.get(GENERAL, "TreasureMap", true);
+            TreasureMap = TreasureMapProperty.getBoolean(true);
+
+            VoidRasenshurikenProperty = config.get(GENERAL, "VoidRasenShuriken", true);
+            VoidRasenshuriken = VoidRasenshurikenProperty.getBoolean(true);
+
+            MassiveRasenganProperty = config.get(GENERAL, "MassiveRasenganShuriken", true);
+            MassiveRasengan = MassiveRasenganProperty.getBoolean(true);
+
+            MassiveRasenganSpinProperty = config.get(GENERAL, "MassiveRasenganSpinShuriken", true);
+            MassiveRasenganSpin = MassiveRasenganSpinProperty.getBoolean(true);
 
         } catch (Exception e) {
             FMLLog.log(Level.ERROR, e, "PluginMod has had a problem loading its main configuration");
