@@ -4,6 +4,7 @@ import KAMKEEL.PluginMod.Items.Cards.*;
 import KAMKEEL.PluginMod.Items.Misc.*;
 import KAMKEEL.PluginMod.Items.Weapons.*;
 import KAMKEEL.PluginMod.PluginMod;
+import KAMKEEL.PluginMod.Config.ConfigItem;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -108,58 +109,80 @@ public class ModItems {
 
 
         // Metadata Items:
-        Pills = new Pills();
-        GameRegistry.registerItem(Pills, "pills");
-        Coins = new Coins();
-        GameRegistry.registerItem(Coins, "coins");
-        Eyes = new Eyes();
-        GameRegistry.registerItem(Eyes, "eyes");
-        Balls = new Balls();
-        GameRegistry.registerItem(Balls, "balls");
-        Artifacts = new Artifacts();
-        GameRegistry.registerItem(Artifacts, "artifacts");
-        EnergyAttacks = new Energy();
-        GameRegistry.registerItem(EnergyAttacks, "energy");
-        Apples = new Apple(4, 1.2F, false);
-        GameRegistry.registerItem(Apples, "apples");
+        if (ConfigItem.Pills) {
+            Pills = new Pills();
+            GameRegistry.registerItem(Pills, "pills");
+        }
+        if (ConfigItem.MISC) {
+            Coins = new Coins();
+            GameRegistry.registerItem(Coins, "coins");
+        }
+        if (ConfigItem.Eyes) {
+            Eyes = new Eyes();
+            GameRegistry.registerItem(Eyes, "eyes");
+        }
+        if (ConfigItem.Balls) {
+            Balls = new Balls();
+            GameRegistry.registerItem(Balls, "balls");
+        }
+        if (ConfigItem.Artifacts) {
+            Artifacts = new Artifacts();
+            GameRegistry.registerItem(Artifacts, "artifacts");
+        }
+        if (ConfigItem.EnergyAttacks) {
+            EnergyAttacks = new Energy();
+            GameRegistry.registerItem(EnergyAttacks, "energy");
+        }
+        if (ConfigItem.Apples) {
+            Apples = new Apple(4, 1.2F, false);
+            GameRegistry.registerItem(Apples, "apples");
+        }
+        if (ConfigItem.TreasureMap) {
+            TreasureMap = new TreasureMap().setUnlocalizedName("TreasureMap").setTextureName("plug:extra/treasuremap");
+            GameRegistry.registerItem(TreasureMap, TreasureMap.getUnlocalizedName());
+        }
+        if (ConfigItem.PaperBomb) {
+            PaperBomb = new PaperBomb().setUnlocalizedName("PaperBomb").setTextureName("plug:weapons/paperbomb");
+            GameRegistry.registerItem(PaperBomb, PaperBomb.getUnlocalizedName());
+        }
+        if (ConfigItem.MISC) {
+            Item miscItem = new PluginItemInterface(10001).setUnlocalizedName("medkit").setTextureName("plug:extra/medkit").setCreativeTab(PluginMod.miscTab);
+            miscItem = new PluginItemInterface(10001).setUnlocalizedName("bandages").setTextureName("plug:extra/bandages").setCreativeTab(PluginMod.miscTab);
+            miscItem = new PluginItemInterface(10001).setUnlocalizedName("bell").setTextureName("plug:extra/bell").setCreativeTab(PluginMod.miscTab);
+            miscItem = new PluginItemInterface(10001).setUnlocalizedName("energy_catalyst").setTextureName("plug:materials/catalyst").setCreativeTab(PluginMod.miscTab);
+            miscItem = new PluginItemInterface(10001).setUnlocalizedName("hyper_catalyst").setTextureName("plug:materials/hyper_catalyst").setCreativeTab(PluginMod.miscTab);
+            miscItem = new PluginItemInterface(10001).setUnlocalizedName("horn").setTextureName("plug:extra/horn").setCreativeTab(PluginMod.miscTab);
+            miscItem = new PluginItemInterface(10001).setUnlocalizedName("rope").setTextureName("plug:extra/rope").setCreativeTab(PluginMod.miscTab);
+            miscItem = new PluginItemInterface(10001).setUnlocalizedName("painkiller").setTextureName("plug:extra/painkiller").setCreativeTab(PluginMod.miscTab);
 
-        TreasureMap = new TreasureMap().setUnlocalizedName("TreasureMap").setTextureName("plug:extra/treasuremap");
-        GameRegistry.registerItem(TreasureMap, TreasureMap.getUnlocalizedName());
-        PaperBomb = new PaperBomb().setUnlocalizedName("PaperBomb").setTextureName("plug:weapons/paperbomb");
-        GameRegistry.registerItem(PaperBomb, PaperBomb.getUnlocalizedName());
-
-        Item miscItem = new PluginItemInterface(10001).setUnlocalizedName("medkit").setTextureName("plug:extra/medkit").setCreativeTab(PluginMod.miscTab);
-        miscItem = new PluginItemInterface(10001).setUnlocalizedName("bandages").setTextureName("plug:extra/bandages").setCreativeTab(PluginMod.miscTab);
-        miscItem = new PluginItemInterface(10001).setUnlocalizedName("bell").setTextureName("plug:extra/bell").setCreativeTab(PluginMod.miscTab);
-        miscItem = new PluginItemInterface(10001).setUnlocalizedName("energy_catalyst").setTextureName("plug:materials/catalyst").setCreativeTab(PluginMod.miscTab);
-        miscItem = new PluginItemInterface(10001).setUnlocalizedName("hyper_catalyst").setTextureName("plug:materials/hyper_catalyst").setCreativeTab(PluginMod.miscTab);
-        miscItem = new PluginItemInterface(10001).setUnlocalizedName("horn").setTextureName("plug:extra/horn").setCreativeTab(PluginMod.miscTab);
-        miscItem = new PluginItemInterface(10001).setUnlocalizedName("rope").setTextureName("plug:extra/rope").setCreativeTab(PluginMod.miscTab);
-        miscItem = new PluginItemInterface(10001).setUnlocalizedName("painkiller").setTextureName("plug:extra/painkiller").setCreativeTab(PluginMod.miscTab);
-
-        miscItem = new PluginItemFoodInterface(10, 0.8F, true).setUnlocalizedName("burrito").setTextureName("plug:extra/burrito").setCreativeTab(PluginMod.miscTab);
-
-
-        VoidRasenshuriken = new VoidRasenshuriken(10001, random).setUnlocalizedName("VoidRasenshuriken").setTextureName("plug:energy/voidrasenshuriken");
-        MassiveRasengan = new MassiveRasengan().setUnlocalizedName("massiverasengan").setTextureName("plug:energy/massive_rasengan");
-        MassiveRasenganSpin = new MassiveRasengan().setUnlocalizedName("massiverasengan_spin").setTextureName("plug:energy/massive_rasengan_spin");
-
+            miscItem = new PluginItemFoodInterface(10, 0.8F, true).setUnlocalizedName("burrito").setTextureName("plug:extra/burrito").setCreativeTab(PluginMod.miscTab);
+        }
+        if (ConfigItem.VoidRasenshuriken) {
+            VoidRasenshuriken = new VoidRasenshuriken(10001, random).setUnlocalizedName("VoidRasenshuriken").setTextureName("plug:energy/voidrasenshuriken");
+        }
+        if (ConfigItem.MassiveRasengan) {
+            MassiveRasengan = new MassiveRasengan().setUnlocalizedName("massiverasengan").setTextureName("plug:energy/massive_rasengan");
+        }
+        if (ConfigItem.MassiveRasenganSpin) {
+            MassiveRasenganSpin = new MassiveRasengan().setUnlocalizedName("massiverasengan_spin").setTextureName("plug:energy/massive_rasengan_spin");
+        }
         // Cards
-        HeartCard = new HeartCard();
-        GameRegistry.registerItem(HeartCard, "hearts_card");
-        DiamondCard = new DiamondCard();
-        GameRegistry.registerItem(DiamondCard, "diamond_card");
-        SpadeCard = new SpadeCard();
-        GameRegistry.registerItem(SpadeCard, "spade_card");
-        ClubsCard = new ClubsCard();
-        GameRegistry.registerItem(ClubsCard, "clubs_card");
-        JokerCard = new JokerCard();
-        GameRegistry.registerItem(JokerCard, "joker_card");
-        CardIcon = new CardIcon().setUnlocalizedName("CardIcon").setTextureName("plug:cards/plugcard");
-        GameRegistry.registerItem(CardIcon, CardIcon.getUnlocalizedName());
-        AddonCard = new AddonCard();
-        GameRegistry.registerItem(AddonCard, "addon_card");
-
+        if (ConfigItem.Cards) {
+            HeartCard = new HeartCard();
+            GameRegistry.registerItem(HeartCard, "hearts_card");
+            DiamondCard = new DiamondCard();
+            GameRegistry.registerItem(DiamondCard, "diamond_card");
+            SpadeCard = new SpadeCard();
+            GameRegistry.registerItem(SpadeCard, "spade_card");
+            ClubsCard = new ClubsCard();
+            GameRegistry.registerItem(ClubsCard, "clubs_card");
+            JokerCard = new JokerCard();
+            GameRegistry.registerItem(JokerCard, "joker_card");
+            CardIcon = new CardIcon().setUnlocalizedName("CardIcon").setTextureName("plug:cards/plugcard");
+            GameRegistry.registerItem(CardIcon, CardIcon.getUnlocalizedName());
+            AddonCard = new AddonCard();
+            GameRegistry.registerItem(AddonCard, "addon_card");
+        }
         // Ingot Assignment
         dark_metal.customCraftingMaterial = dark_metal_ingot;
         custom_dark_metal.customCraftingMaterial = dark_metal_ingot;
@@ -191,17 +214,19 @@ public class ModItems {
         GameRegistry.addRecipe(new ItemStack(ModWeapons.TreasureCutlass), "  1", " 2 ", "34 ", '1', ModItems.TreasureCutlassBlade, '2', ModItems.TreasureCutlassBinding, '3', ModItems.TreasureCutlassHandle, '4', Items.lava_bucket);
 
         // Apple Recipes
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 0), new ItemStack(Items.golden_apple, 1, 1));
+        if (ConfigItem.Apples) {
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 0), new ItemStack(Items.golden_apple, 1, 1));
 
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 3), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.blaze_powder, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 4), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.ghast_tear, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 5), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.iron_ingot, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 6), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.glowstone_dust, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 7), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.sugar, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 8), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.speckled_melon, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 9), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.golden_carrot, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 10), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.magma_cream, 1, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 11), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.bread, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 3), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.blaze_powder, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 4), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.ghast_tear, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 5), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.iron_ingot, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 6), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.glowstone_dust, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 7), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.sugar, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 8), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.speckled_melon, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 9), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.golden_carrot, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 10), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.magma_cream, 1, 0));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Apples, 1, 11), new ItemStack(ModItems.Apples, 1, 1), new ItemStack(Items.bread, 1, 0));
 
+        }
     }
 }
